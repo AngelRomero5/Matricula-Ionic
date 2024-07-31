@@ -28,8 +28,11 @@ import {
     
 } from '@ionic/react';
 
-import { addOutline } from 'ionicons/icons';
+import { addOutline, arrowForwardOutline } from 'ionicons/icons';
 import { useHistory } from 'react-router-dom';
+
+// Styles
+import '../styles/CourseSelection.css'
 
 
 // Eventualmente se traeran los cursos de la base de datos
@@ -85,18 +88,18 @@ const CourseSelection: React.FC = () => {
                     <IonButtons slot="start">
                         <IonMenuButton />
                     </IonButtons>
-                    <IonTitle>Selección de Curso</IonTitle>
+                    <IonTitle className='ion-justify-content-center'>Selección de Curso</IonTitle>
                 </IonToolbar>
             </IonHeader>
 
             <IonContent fullscreen className="ion-padding">
                 <IonHeader collapse="condense" color='primary'>
                     <IonToolbar>
-                        <IonTitle size="large">Selección de Curso</IonTitle>
+                        <IonTitle className='ion-justify-content-center' size="large">Selección de Curso</IonTitle>
                     </IonToolbar>
                 </IonHeader>
 
-                <IonFab horizontal="end" vertical="bottom" slot="fixed">
+                <IonFab horizontal="end" vertical="bottom" slot="fixed" className="ion-padding">
                     <IonFabButton onClick={handleFabClick}>
                         <IonIcon ios={addOutline} md={addOutline} />
                     </IonFabButton>
@@ -108,13 +111,14 @@ const CourseSelection: React.FC = () => {
                     placeholder="Búsqueda por curso"
                     value={searchText}
                     onIonInput={handleSearch}
+                    color='light'
                 />
 
                 {/* Grid of Course Cards */}
                 <IonGrid>
                     <IonRow className='ion-justify-content-center'>
                         {filteredCourses.map(course => (
-                            <IonCol key={course.id} size="6" size-md="3">
+                            <IonCol key={course.id} size="12" size-md="3">
                                 <IonCard>
                                     <img alt={course.title} src={course.img} />
                                     <IonCardHeader>
@@ -122,7 +126,11 @@ const CourseSelection: React.FC = () => {
                                         <IonCardSubtitle>{course.subtitle}</IonCardSubtitle>
                                     </IonCardHeader>
                                     <IonCardContent>{course.description}</IonCardContent>
-                                    <IonButton fill="clear" onClick={() => handleMoreInfoClick(course)}>Ver más</IonButton>
+                                    <IonFooter>
+                                        <IonToolbar>
+                                            <IonButton className="ion-padding-right" slot="end" fill="clear" onClick={() => handleMoreInfoClick(course)}>Ver más</IonButton>
+                                        </IonToolbar>
+                                    </IonFooter>
                                 </IonCard>
                             </IonCol>
                         ))}
@@ -132,8 +140,8 @@ const CourseSelection: React.FC = () => {
                 {/* Modal for More Info */}
                 <IonModal className="ion-padding" isOpen={showModal} onDidDismiss={handleCloseModal}>
                     <IonHeader>
-                        <IonToolbar color='primary'>
-                            <IonTitle>Información del Curso</IonTitle>
+                        <IonToolbar className='ion-padding-top ion-padding-bottom' color='light'>
+                            <IonTitle class='modal-title'>Información del Curso</IonTitle>
                             <IonButtons slot="end">
                                 <IonButton onClick={handleCloseModal}>Cerrar</IonButton>
                             </IonButtons>
@@ -145,10 +153,10 @@ const CourseSelection: React.FC = () => {
                                 <img alt={selectedCourse.title} src={selectedCourse.img} />
                                 <IonList>
                                     <IonItem>
-                                        <IonLabel><h2>{selectedCourse.title}</h2></IonLabel>
+                                        <IonLabel><h1>{selectedCourse.title}</h1></IonLabel>
                                     </IonItem>
                                     <IonItem>
-                                        <IonLabel><h3>{selectedCourse.subtitle}</h3></IonLabel>
+                                        <IonLabel><h2>{selectedCourse.subtitle}</h2></IonLabel>
                                     </IonItem>
                                     <IonItem>
                                         <IonLabel><p>{selectedCourse.description}</p></IonLabel>
@@ -166,8 +174,11 @@ const CourseSelection: React.FC = () => {
                         )}
                         <IonFooter>
                             <IonToolbar>
-                                <IonButtons slot="end">
-                                    <IonButton fill="solid" color='primary'>Matricularse</IonButton>
+                                <IonButtons slot="end" className='ion-padding-bottom ion-padding-right'>
+                                    <IonButton fill="solid" color='primary'> 
+                                        Matricularse 
+                                        <IonIcon className='ion-padding-right' size='small' ios={arrowForwardOutline} md={arrowForwardOutline} />
+                                    </IonButton>
                                 </IonButtons>
                             </IonToolbar>
                         </IonFooter>

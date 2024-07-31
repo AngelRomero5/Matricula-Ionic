@@ -10,6 +10,8 @@ import CourseSelection from './pages/CourseSelection';
 import CourseCreation from './pages/CourseCreation';
 import Home from './pages/Home';
 import UserSettings from './pages/UserSettings';
+import CourseEditing from './pages/CourseEditing';
+import CourseAdministration from './pages/CourseAdministration';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -30,6 +32,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+
 setupIonicReact();
 
 const App: React.FC = () => {
@@ -41,7 +44,7 @@ const App: React.FC = () => {
           <IonRouterOutlet id="main">
             <Route path="/Home" component={Home} exact={true} />
             <Route path="/CourseSelection" component={CourseSelection} exact={true} />
-            <Route path="/CourseCreation" component={CourseCreation} exact={true} />
+            <Route path="/CourseAdministration" component={CourseAdministration} exact={true} />
             <Route path="/UserSettings" component={UserSettings} exact={true} />
             <Redirect from="/" to="/Home" exact />
           </IonRouterOutlet>

@@ -14,13 +14,13 @@ import {
     IonCard,
     IonInput,
     IonList,
-    IonButton, 
+    IonButton,
     IonLabel,
-    IonFooter
+    IonCheckbox
 } from '@ionic/react';
-import { layersOutline, library, peopleCircleOutline, readerOutline, schoolOutline, camera, addCircleOutline } from 'ionicons/icons';
+import { layersOutline, library, peopleCircleOutline, readerOutline, schoolOutline, camera, addCircleOutline, powerOutline } from 'ionicons/icons';
 
-const CourseCreation: React.FC = () => {
+const CourseEditing: React.FC = () => {
     const [selectedImage, setSelectedImage] = useState<string | ArrayBuffer | null>(null);
 
     const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,10 +34,11 @@ const CourseCreation: React.FC = () => {
         }
     };
 
-    return (            
+    return (                            
             <IonContent>
                 <IonCard className='ion-padding'>
                     <IonList>
+                    
                         <IonItem className='ion-padding-top'>
                             <IonIcon slot="start" icon={library} aria-hidden="true" />
                             <IonInput id="name" labelPlacement="floating" label="Nombre del curso"></IonInput>
@@ -62,6 +63,11 @@ const CourseCreation: React.FC = () => {
                                 <IonSelectOption value="Profesor3">Profesor3</IonSelectOption>
                             </IonSelect>
                         </IonItem>
+                        <IonItem className='ion-padding-top ion-justify-content-center'>
+                            <IonIcon slot="start" icon={powerOutline} aria-hidden="true" />
+                            <IonCheckbox >Activar/Desactivar Curso</IonCheckbox>
+                        </IonItem>
+                
                         <IonItem className='ion-padding-top ion-padding-bottom'>
                             <IonIcon slot="start" icon={camera} aria-hidden="true" />
                             <input
@@ -81,13 +87,12 @@ const CourseCreation: React.FC = () => {
                                 <img src={selectedImage as string} alt="Selected Course" style={{ width: '100%' }} />
                             </IonItem>
                         )}
+                        
                     </IonList>
                     <IonToolbar>
                         <IonButtons slot='end' className='ion-padding'>
-                            <IonButton fill='solid'>
-                                <IonIcon slot="start" icon={addCircleOutline} aria-hidden="true" />
-                                Guardar
-                            </IonButton>
+                            <IonButton fill='solid'><IonIcon slot="start" icon={addCircleOutline} aria-hidden="true" />
+                                Guardar</IonButton>
                         </IonButtons>
                     </IonToolbar>
                 </IonCard>
@@ -95,4 +100,4 @@ const CourseCreation: React.FC = () => {
     );
 };
 
-export default CourseCreation;
+export default CourseEditing;

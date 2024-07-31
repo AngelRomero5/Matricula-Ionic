@@ -12,7 +12,7 @@ import {
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, settingsOutline, appsOutline, calendarOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { settingsOutline, libraryOutline, createOutline, homeOutline } from 'ionicons/icons';
 import '../styles/Menu.css'
 
 interface AppPage {
@@ -27,20 +27,20 @@ const appPages: AppPage[] = [
   {
     title: 'Home',
     url: '/Home',
-    iosIcon: calendarOutline,
-    mdIcon: calendarOutline
+    iosIcon: homeOutline,
+    mdIcon: homeOutline
   },
   {
     title: 'Selección de Cursos',
     url: '/CourseSelection',
-    iosIcon: archiveOutline,
-    mdIcon: archiveSharp
+    iosIcon: libraryOutline,
+    mdIcon: libraryOutline
   },
   {
-    title: 'Creación de Cursos',
-    url: '/CourseCreation',
-    iosIcon: appsOutline,
-    mdIcon: appsOutline
+    title: 'Administración de Cursos',
+    url: '/CourseAdministration',
+    iosIcon: createOutline,
+    mdIcon: createOutline
   },
   {
     title: 'Ajustes',

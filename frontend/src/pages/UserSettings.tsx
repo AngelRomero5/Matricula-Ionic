@@ -11,14 +11,14 @@ const UserSettings: React.FC = () => {
                     <IonButtons slot="start">
                         <IonMenuButton />
                     </IonButtons>
-                    <IonTitle>Ajustes</IonTitle>
+                    <IonTitle className='ion-justify-content-center'>Ajustes</IonTitle>
                 </IonToolbar>
             </IonHeader>
 
             <IonContent fullscreen>
                 <IonHeader collapse="condense">
                     <IonToolbar>
-                        <IonTitle size="large">Ajustes</IonTitle>
+                        <IonTitle className='ion-justify-content-center' size="large">Ajustes</IonTitle>
                     </IonToolbar>
                 </IonHeader>
             </IonContent>

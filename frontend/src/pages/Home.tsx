@@ -11,14 +11,14 @@ const Home: React.FC = () => {
                     <IonButtons slot="start">
                         <IonMenuButton />
                     </IonButtons>
-                    <IonTitle>Home</IonTitle>
+                    <IonTitle className='ion-justify-content-center'>Home</IonTitle>
                 </IonToolbar>
             </IonHeader>
 
             <IonContent fullscreen>
                 <IonHeader collapse="condense">
                     <IonToolbar>
-                        <IonTitle size="large">Home</IonTitle>
+                        <IonTitle className='ion-justify-content-center' size="large">Home</IonTitle>
                     </IonToolbar>
                 </IonHeader>
             </IonContent>
