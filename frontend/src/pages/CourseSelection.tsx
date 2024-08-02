@@ -24,11 +24,12 @@ import {
     IonList, 
     IonItem,
     IonLabel,
-    IonFooter
+    IonFooter,
+    isPlatform
     
 } from '@ionic/react';
 
-import { addOutline, arrowForwardOutline } from 'ionicons/icons';
+import { addOutline, arrowForwardOutline, logOutOutline } from 'ionicons/icons';
 import { useHistory } from 'react-router-dom';
 
 // Styles
@@ -37,10 +38,10 @@ import '../styles/CourseSelection.css'
 
 // Eventualmente se traeran los cursos de la base de datos
 const courses = [
-    { id: 1, title: 'Canto', subtitle: 'Profesor - Salon', description: 'Here is a small text description for the card content. Nothing more, nothing less.', img: '/img/sing.jpg' },
-    { id: 2, title: 'Arte Básico', subtitle: 'Profesor - Salon', description: 'Here is a small text description for the card content. Nothing more, nothing less.', img: '/img/art.jpg' },
-    { id: 3, title: 'Guitarra II', subtitle: 'Profesor - Salon', description: 'Here is a small text description for the card content. Nothing more, nothing less.', img: '/img/guitar.jpg' },
-    { id: 4, title: 'Piano I', subtitle: 'Profesor - Salon', description: 'Here is a small text description for the card content. Nothing more, nothing less.', img: '/img/piano.jpg' },
+    { id: 1, title: 'Canto', subtitle: 'Ángel Romero - Salón 1D', description: 'Here is a small text description for the card content. Nothing more, nothing less.', img: '/img/sing.jpg' },
+    { id: 2, title: 'Arte Básico', subtitle: 'Ángel Romero - Salón', description: 'Here is a small text description for the card content. Nothing more, nothing less.', img: '/img/art.jpg' },
+    { id: 3, title: 'Guitarra II', subtitle: 'Ángel Romero - Salón', description: 'Here is a small text description for the card content. Nothing more, nothing less.', img: '/img/guitar.jpg' },
+    { id: 4, title: 'Piano I', subtitle: 'Ángel Romero - Salón', description: 'Here is a small text description for the card content. Nothing more, nothing less.', img: '/img/piano.jpg' },
     // Add more courses as needed
 ];
 
@@ -59,7 +60,7 @@ const CourseSelection: React.FC = () => {
     };
 
     const handleFabClick = () => {
-        history.push('/CourseCreation');
+        history.push('/CourseAdministration');
     };
 
     const handleMoreInfoClick = (course: any) => {
@@ -89,15 +90,20 @@ const CourseSelection: React.FC = () => {
                         <IonMenuButton />
                     </IonButtons>
                     <IonTitle className='ion-justify-content-center'>Selección de Curso</IonTitle>
+                    <IonButton slot='end' fill='clear' color='light'>
+                        <IonIcon slot="icon-only" icon={logOutOutline} />
+                    </IonButton>
                 </IonToolbar>
             </IonHeader>
 
             <IonContent fullscreen className="ion-padding">
-                <IonHeader collapse="condense" color='primary'>
-                    <IonToolbar>
-                        <IonTitle className='ion-justify-content-center' size="large">Selección de Curso</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
+                {!isPlatform('ios') && (
+                    <IonHeader collapse="condense">
+                        <IonToolbar>
+                            <IonTitle className='ion-justify-content-center' size="large">Home</IonTitle>
+                        </IonToolbar>
+                    </IonHeader>
+                )}
 
                 <IonFab horizontal="end" vertical="bottom" slot="fixed" className="ion-padding">
                     <IonFabButton onClick={handleFabClick}>
@@ -106,7 +112,7 @@ const CourseSelection: React.FC = () => {
                 </IonFab>
 
                 {/* Search Bar */}
-                <IonSearchbar
+                <IonSearchbar 
                     showClearButton="always"
                     placeholder="Búsqueda por curso"
                     value={searchText}
@@ -119,16 +125,16 @@ const CourseSelection: React.FC = () => {
                     <IonRow className='ion-justify-content-center'>
                         {filteredCourses.map(course => (
                             <IonCol key={course.id} size="12" size-md="3">
-                                <IonCard>
+                                <IonCard color={'primary'}>
                                     <img alt={course.title} src={course.img} />
                                     <IonCardHeader>
-                                        <IonCardTitle>{course.title}</IonCardTitle>
-                                        <IonCardSubtitle>{course.subtitle}</IonCardSubtitle>
+                                        <IonCardTitle className='header-text'>{course.title}</IonCardTitle>
+                                        <IonCardSubtitle> Prof. {course.subtitle}</IonCardSubtitle>
                                     </IonCardHeader>
                                     <IonCardContent>{course.description}</IonCardContent>
                                     <IonFooter>
-                                        <IonToolbar>
-                                            <IonButton className="ion-padding-right" slot="end" fill="clear" onClick={() => handleMoreInfoClick(course)}>Ver más</IonButton>
+                                        <IonToolbar color='primary'>
+                                            <IonButton className=" button-text-color ion-padding-right" slot="end" fill="clear" onClick={() => handleMoreInfoClick(course)}>Ver más</IonButton>
                                         </IonToolbar>
                                     </IonFooter>
                                 </IonCard>
@@ -140,7 +146,7 @@ const CourseSelection: React.FC = () => {
                 {/* Modal for More Info */}
                 <IonModal className="ion-padding" isOpen={showModal} onDidDismiss={handleCloseModal}>
                     <IonHeader>
-                        <IonToolbar className='ion-padding-top ion-padding-bottom' color='light'>
+                        <IonToolbar className='ion-padding-top ion-padding-bottom' color='primary'>
                             <IonTitle class='modal-title'>Información del Curso</IonTitle>
                             <IonButtons slot="end">
                                 <IonButton onClick={handleCloseModal}>Cerrar</IonButton>

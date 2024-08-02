@@ -1,3 +1,12 @@
 .modal-title {
     font-size: 1.4rem;
 }
+
+.header-text {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.button-text-color {
+    color:white;
+}

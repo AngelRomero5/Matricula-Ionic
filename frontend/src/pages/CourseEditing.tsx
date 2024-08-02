@@ -3,12 +3,8 @@ import {
     IonButtons,
     IonContent,
     IonIcon,
-    IonHeader,
-    IonMenuButton,
-    IonPage,
     IonSelect,
     IonSelectOption,
-    IonTitle,
     IonToolbar,
     IonItem,
     IonCard,
@@ -16,7 +12,11 @@ import {
     IonList,
     IonButton,
     IonLabel,
-    IonCheckbox
+    IonCheckbox,
+    IonTextarea,
+    IonCol,
+    IonRow,
+    IonGrid
 } from '@ionic/react';
 import { layersOutline, library, peopleCircleOutline, readerOutline, schoolOutline, camera, addCircleOutline, powerOutline } from 'ionicons/icons';
 
@@ -39,37 +39,39 @@ const CourseEditing: React.FC = () => {
                 <IonCard className='ion-padding'>
                     <IonList>
                     
-                        <IonItem className='ion-padding-top'>
-                            <IonIcon slot="start" icon={library} aria-hidden="true" />
+                        <IonItem>
+                            <IonIcon slot="start" color='primary'icon={library} aria-hidden="true" />
                             <IonInput id="name" labelPlacement="floating" label="Nombre del curso"></IonInput>
                         </IonItem>
                         <IonItem className='ion-padding-top'>
-                            <IonIcon slot="start" icon={readerOutline} aria-hidden="true" />
-                            <IonInput id="description" labelPlacement="floating" label="Descripción" clearInput={true}></IonInput>
+                        <IonIcon slot="start" color='primary' icon={readerOutline} aria-hidden="true" />
+                            <IonTextarea
+                                className="des"
+                                id="description"
+                                labelPlacement="floating"
+                                label="Descripción"
+                                autoGrow={true}
+                            ></IonTextarea>                          
                         </IonItem>
                         <IonItem className='ion-padding-top'>
-                            <IonIcon slot="start" icon={layersOutline} aria-hidden="true" />
+                        <IonIcon slot="start" color='primary' icon={layersOutline} aria-hidden="true" />
                             <IonInput id="sections" labelPlacement="floating" type="number" label="# de secciones" ></IonInput>
                         </IonItem>
                         <IonItem className='ion-padding-top'>
-                            <IonIcon slot="start" icon={peopleCircleOutline} aria-hidden="true" />
+                        <IonIcon slot="start" color='primary' icon={peopleCircleOutline} aria-hidden="true" />
                             <IonInput labelPlacement="floating" type="number" label="Cupo"></IonInput>
                         </IonItem>
                         <IonItem className='ion-padding-top'>
-                            <IonIcon slot="start" icon={schoolOutline} aria-hidden="true" />
+                        <IonIcon slot="start" color='primary' icon={schoolOutline} aria-hidden="true" />
                             <IonSelect id="professor" label="Profesor" labelPlacement="floating">
                                 <IonSelectOption value="Profesor1">Profesor1</IonSelectOption>
                                 <IonSelectOption value="Profesor2">Profesor2</IonSelectOption>
                                 <IonSelectOption value="Profesor3">Profesor3</IonSelectOption>
                             </IonSelect>
                         </IonItem>
-                        <IonItem className='ion-padding-top ion-justify-content-center'>
-                            <IonIcon slot="start" icon={powerOutline} aria-hidden="true" />
-                            <IonCheckbox >Activar/Desactivar Curso</IonCheckbox>
-                        </IonItem>
                 
                         <IonItem className='ion-padding-top ion-padding-bottom'>
-                            <IonIcon slot="start" icon={camera} aria-hidden="true" />
+                        <IonIcon slot="start" color='primary' icon={camera} aria-hidden="true" />
                             <input
                                 type="file"
                                 accept="image/*"
@@ -79,7 +81,7 @@ const CourseEditing: React.FC = () => {
                             />
                             <IonLabel>Imágen del curso</IonLabel>
                             <IonButton fill="outline" slot="end" onClick={() => document.getElementById('fileInput')?.click()}>
-                                Seleccionar Imágen
+                                Editar Imágen
                             </IonButton>
                         </IonItem>
                         {selectedImage && (
@@ -89,12 +91,19 @@ const CourseEditing: React.FC = () => {
                         )}
                         
                     </IonList>
-                    <IonToolbar>
-                        <IonButtons slot='end' className='ion-padding'>
-                            <IonButton fill='solid'><IonIcon slot="start" icon={addCircleOutline} aria-hidden="true" />
-                                Guardar</IonButton>
-                        </IonButtons>
-                    </IonToolbar>
+                        <IonGrid>
+                            <IonRow className='ion-align-items-center'>
+                                <IonCol>
+                                    <IonCheckbox color={'danger'}>Activar/Desactivar</IonCheckbox>
+                                </IonCol>
+                                <IonCol className='ion-text-end'>
+                                    <IonButton fill='solid'>
+                                        <IonIcon slot="start" icon={addCircleOutline} aria-hidden="true" />
+                                        Guardar
+                                    </IonButton>
+                                </IonCol>
+                            </IonRow>
+                        </IonGrid>
                 </IonCard>
             </IonContent>
     );

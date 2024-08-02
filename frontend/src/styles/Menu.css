@@ -1,5 +1,7 @@
+/* Custom styles for IonMenu */
 ion-menu ion-content {
-  --background: var(--ion-item-background, var(--ion-background-color, #fff));
+  --background: rgb(4,163,155);
+  --ion-item-background: rgb(4,163,155);
 }
 
 ion-menu.md ion-content {
@@ -15,10 +17,12 @@ ion-menu.md ion-list {
 
 ion-menu.md ion-note {
   margin-bottom: 30px;
+  color: white; /* Set note text color to white */
 }
 
 ion-menu.md ion-list-header, ion-menu.md ion-note {
   padding-left: 10px;
+  color: white; /* Set list header text color to white */
 }
 
 ion-menu.md ion-list#inbox-list {
@@ -34,7 +38,7 @@ ion-menu.md ion-list#inbox-list ion-list-header {
 ion-menu.md ion-list#labels-list ion-list-header {
   font-size: 16px;
   margin-bottom: 18px;
-  color: #757575;
+  color: white; /* Change color to white */
   min-height: 26px;
 }
 
@@ -42,22 +46,29 @@ ion-menu.md ion-item {
   --padding-start: 10px;
   --padding-end: 10px;
   border-radius: 4px;
+  color: white; /* Set item text color to white */
+}
+
+ion-menu.md ion-item:hover {
+  --color: white; /* Ensure text color remains white when hovered */
 }
 
 ion-menu.md ion-item.selected {
-  --background: rgba(var(--ion-color-primary-rgb), 0.14);
+  --background: rgba(255, 255, 255, 0.2); /* Lighten the background color for selected item */
+  --color: white; /* Set text color to white for selected item */
 }
 
 ion-menu.md ion-item.selected ion-icon {
-  color: var(--ion-color-primary);
+  color: white; /* Set icon color to white for selected item */
 }
 
 ion-menu.md ion-item ion-icon {
-  color: #616e7e;
+  color: white; /* Set item icon color to white */
 }
 
 ion-menu.md ion-item ion-label {
   font-weight: 500;
+  color: white; /* Set item label color to white */
 }
 
 ion-menu.ios ion-content {
@@ -71,21 +82,27 @@ ion-menu.ios ion-list {
 ion-menu.ios ion-note {
   line-height: 24px;
   margin-bottom: 20px;
+  color: white; /* Set note text color to white */
 }
 
 ion-menu.ios ion-item {
   --padding-start: 16px;
   --padding-end: 16px;
   --min-height: 50px;
+  color: white; /* Set item text color to white */
+}
+
+ion-menu.ios ion-item:hover {
+  --color: white; /* Ensure text color remains white when hovered */
 }
 
 ion-menu.ios ion-item ion-icon {
   font-size: 24px;
-  color: #73849a;
+  color: white; /* Set item icon color to white */
 }
 
-ion-menu.ios ion-item .selected ion-icon {
-  color: var(--ion-color-primary);
+ion-menu.ios ion-item.selected ion-icon {
+  color: white; /* Set icon color to white for selected item */
 }
 
 ion-menu.ios ion-list#labels-list ion-list-header {
@@ -96,18 +113,26 @@ ion-menu.ios ion-list-header,
 ion-menu.ios ion-note {
   padding-left: 16px;
   padding-right: 16px;
+  color: white; /* Set list header and note text color to white */
 }
 
 ion-menu.ios ion-note {
   margin-bottom: 8px;
+  color: white; /* Set note text color to white */
 }
 
 ion-note {
   display: inline-block;
   font-size: 16px;
-  color: var(--ion-color-medium-shade);
+  color: white; /* Set note text color to white */
 }
 
 ion-item.selected {
-  --color: var(--ion-color-primary);
-} 
+  --color: white; /* Set text color to white for selected item */
+}
+
+/* menu image style
+.menu-img {
+  height: 5px !important;
+  width: 5px !important;
+} */

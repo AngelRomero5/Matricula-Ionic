@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
     IonButtons,
-    IonButton,
     IonContent,
     IonHeader,
     IonMenuButton,
@@ -10,10 +9,14 @@ import {
     IonToolbar,
     IonSegment,
     IonSegmentButton,
-    IonLabel
+    IonLabel,
+    IonIcon,
+    IonButton,
+    isPlatform
 } from '@ionic/react';
 import CourseCreation from './CourseCreation';
 import CourseEditing from './CourseEditing';
+import { pencilOutline, createOutline, logOutOutline } from 'ionicons/icons';
 
 const CourseAdministration: React.FC = () => {
     const [selectedSegment, setSelectedSegment] = useState<'creation' | 'editing'>('creation');
@@ -21,27 +24,37 @@ const CourseAdministration: React.FC = () => {
     return (
         <IonPage>
             <IonHeader>
-                <IonToolbar>
+                <IonToolbar color='primary'>
                     <IonButtons slot="start">
                         <IonMenuButton />
                     </IonButtons>
                     <IonTitle className='ion-justify-content-center'>Gestión de Cursos</IonTitle>
+                    <IonButton slot='end' fill='clear' color='light'>
+                        <IonIcon slot="icon-only" icon={logOutOutline} />
+                    </IonButton>
                 </IonToolbar>
             </IonHeader>
 
             <IonContent fullscreen>
-                <IonHeader collapse="condense">
-                    <IonToolbar>
-                        <IonTitle className='ion-justify-content-center' size="large">Gestión de Cursos</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
+                {!isPlatform('ios') && (
+                    <IonHeader collapse="condense">
+                        <IonToolbar>
+                            <IonTitle className='ion-justify-content-center' size="large">Home</IonTitle>
+                        </IonToolbar>
+                    </IonHeader>
+                )}
 
                 <IonSegment className='ion-padding-top' value={selectedSegment} onIonChange={e => setSelectedSegment(e.detail.value as 'creation' | 'editing')}>
                     <IonSegmentButton value="creation">
-                        <IonLabel>Crear Curso</IonLabel>
+                        <IonLabel>                            
+                            {/* <IonIcon className='ion-padding'  slot="start" icon={createOutline} aria-hidden="true" /> */}
+                            Crear Curso
+                        </IonLabel>
                     </IonSegmentButton>
                     <IonSegmentButton value="editing">
-                        <IonLabel>Editar Curso</IonLabel>
+                        <IonLabel >
+                            {/* <IonIcon className='ion-padding' slot="start" icon={pencilOutline} aria-hidden="true" /> */}
+                            Editar Curso</IonLabel>
                     </IonSegmentButton>
                 </IonSegment>
                 {selectedSegment === 'creation' && <CourseCreation />}
