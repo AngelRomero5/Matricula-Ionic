@@ -21,16 +21,18 @@ import {
     IonFabButton,
     IonIcon,
     IonModal,
-    IonList, 
+    IonList,
     IonItem,
     IonLabel,
     IonFooter,
     isPlatform
-    
+
 } from '@ionic/react';
 
 import { addOutline, arrowForwardOutline, logOutOutline } from 'ionicons/icons';
 import { useHistory } from 'react-router-dom';
+import Footer from '../components/Footer';
+
 
 // Styles
 import '../styles/CourseSelection.css'
@@ -112,7 +114,7 @@ const CourseSelection: React.FC = () => {
                 </IonFab>
 
                 {/* Search Bar */}
-                <IonSearchbar 
+                <IonSearchbar
                     showClearButton="always"
                     placeholder="Búsqueda por curso"
                     value={searchText}
@@ -175,14 +177,14 @@ const CourseSelection: React.FC = () => {
                                     </IonItem>
                                     {/* Add more course details here if needed */}
                                 </IonList>
-                               
+
                             </div>
                         )}
                         <IonFooter>
                             <IonToolbar>
                                 <IonButtons slot="end" className='ion-padding-bottom ion-padding-right'>
-                                    <IonButton fill="solid" color='primary'> 
-                                        Matricularse 
+                                    <IonButton fill="solid" color='primary'>
+                                        Matricularse
                                         <IonIcon className='ion-padding-right' size='small' ios={arrowForwardOutline} md={arrowForwardOutline} />
                                     </IonButton>
                                 </IonButtons>
@@ -191,6 +193,8 @@ const CourseSelection: React.FC = () => {
                     </IonContent>
                 </IonModal>
             </IonContent>
+            <Footer />
+
         </IonPage>
     );
 };

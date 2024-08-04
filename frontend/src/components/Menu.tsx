@@ -67,7 +67,7 @@ const Menu: React.FC = () => {
               <IonImg id='menu-img' src='/img/TA-background.png'></IonImg>
             </IonCol>
             <IonCol>
-              <IonListHeader>Matrícula</IonListHeader>
+              <IonListHeader>Bellas Artes</IonListHeader>
               <IonNote>test@correo.com</IonNote>
             </IonCol>
           </IonRow>

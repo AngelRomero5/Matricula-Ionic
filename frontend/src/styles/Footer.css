@@ -1,0 +1,8 @@
+.card-map {
+    --background: rgb(120,187,76, .85) !important;
+}
+
+.logo-footer {
+    height: 10rem;
+    width: 10rem;
+}

@@ -1,0 +1,35 @@
+.logo-home{
+    height: 15rem;
+    width: 15rem;
+}
+.home-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-wrap:wrap;
+}
+
+.home-text {
+    font-size: 1rem;
+    padding-left: 20px;
+    text-wrap: wrap;
+}
+
+.btn-padding-left{
+    padding-left: 20px;
+}
+
+.home-card {
+    padding: 4.5rem;
+}
+
+.number-cards-title {
+    font-size: 3.3rem;
+}
+
+.number-cards {
+    border-right: solid 1px rgba(4, 163, 155, 0.5);
+}
+
+.card-map {
+    --background: rgb(120,187,76, .85);
+}

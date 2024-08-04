@@ -17,6 +17,8 @@ import {
 import CourseCreation from './CourseCreation';
 import CourseEditing from './CourseEditing';
 import { pencilOutline, createOutline, logOutOutline } from 'ionicons/icons';
+import Footer from '../components/Footer';
+
 
 const CourseAdministration: React.FC = () => {
     const [selectedSegment, setSelectedSegment] = useState<'creation' | 'editing'>('creation');
@@ -46,7 +48,7 @@ const CourseAdministration: React.FC = () => {
 
                 <IonSegment className='ion-padding-top' value={selectedSegment} onIonChange={e => setSelectedSegment(e.detail.value as 'creation' | 'editing')}>
                     <IonSegmentButton value="creation">
-                        <IonLabel>                            
+                        <IonLabel>
                             {/* <IonIcon className='ion-padding'  slot="start" icon={createOutline} aria-hidden="true" /> */}
                             Crear Curso
                         </IonLabel>
@@ -60,6 +62,7 @@ const CourseAdministration: React.FC = () => {
                 {selectedSegment === 'creation' && <CourseCreation />}
                 {selectedSegment === 'editing' && <CourseEditing />}
             </IonContent>
+            <Footer/>
         </IonPage>
     );
 };

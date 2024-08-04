@@ -1,6 +1,8 @@
 import React from 'react';
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton, IonIcon, isPlatform } from '@ionic/react';
 import { logOutOutline } from 'ionicons/icons';
+import Footer from '../components/Footer';
+
 
 
 const UserSettings: React.FC = () => {
@@ -28,6 +30,7 @@ const UserSettings: React.FC = () => {
                     </IonHeader>
                 )}
             </IonContent>
+            <Footer/>
         </IonPage>
     );
 };
