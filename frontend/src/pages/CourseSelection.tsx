@@ -98,7 +98,7 @@ const CourseSelection: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
 
-            <IonContent fullscreen className="ion-padding">
+            <IonContent fullscreen>
                 {!isPlatform('ios') && (
                     <IonHeader collapse="condense">
                         <IonToolbar>
@@ -106,6 +106,8 @@ const CourseSelection: React.FC = () => {
                         </IonToolbar>
                     </IonHeader>
                 )}
+                <div className="content-wrapper">
+                    <div className="content">
 
                 <IonFab horizontal="end" vertical="bottom" slot="fixed" className="ion-padding">
                     <IonFabButton onClick={handleFabClick}>
@@ -120,10 +122,11 @@ const CourseSelection: React.FC = () => {
                     value={searchText}
                     onIonInput={handleSearch}
                     color='light'
+                    className="ion-padding"
                 />
 
                 {/* Grid of Course Cards */}
-                <IonGrid>
+                <IonGrid className="ion-padding">
                     <IonRow className='ion-justify-content-center'>
                         {filteredCourses.map(course => (
                             <IonCol key={course.id} size="12" size-md="3">
@@ -192,9 +195,11 @@ const CourseSelection: React.FC = () => {
                         </IonFooter>
                     </IonContent>
                 </IonModal>
+                </div>
+                <Footer />
+            </div>
             </IonContent>
-            <Footer />
-
+ 
         </IonPage>
     );
 };

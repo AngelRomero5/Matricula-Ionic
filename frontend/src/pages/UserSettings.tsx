@@ -29,8 +29,12 @@ const UserSettings: React.FC = () => {
                         </IonToolbar>
                     </IonHeader>
                 )}
+                <div className="content-wrapper">
+                    <div className="content">
+                    </div>
+                    <Footer />
+                </div>
             </IonContent>
-            <Footer/>
         </IonPage>
     );
 };

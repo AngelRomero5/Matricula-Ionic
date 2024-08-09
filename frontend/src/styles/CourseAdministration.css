@@ -1,0 +1,10 @@
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+    padding-bottom: 1rem; /* Space for footer */
+}

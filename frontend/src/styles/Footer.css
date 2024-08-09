@@ -1,8 +1,19 @@
 .card-map {
-    --background: rgb(120,187,76, .85) !important;
+    --background: rgb(120,187,76) !important;
 }
 
 .logo-footer {
     height: 10rem;
     width: 10rem;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+    padding-bottom: 1rem; /* Space for footer */
 }

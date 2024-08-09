@@ -6,19 +6,20 @@ import {
     IonCol,
     IonFooter,
     IonText, 
-    IonCard
+    IonCard,
+    IonToolbar
 } from '@ionic/react';
 
 import '../styles/Footer.css';
 import { callOutline, locationOutline, mailOutline } from 'ionicons/icons';
 
-
 const Footer: React.FC = () => {
 
     return (
-        <IonFooter className='footer'>
-            <IonCard className='ion-padding card-map '>
+        <div>
 
+        <IonFooter>
+            <IonToolbar className='ion-padding card-map'>
                 <IonRow className='ion-align-items-center ion-justify-content-center'>
                     <IonCol size='1.5'><IonImg className='logo-footer' src='/img/TA-background.png'></IonImg></IonCol>
                     <IonCol size='4' className='home-text'>
@@ -49,14 +50,15 @@ const Footer: React.FC = () => {
                         </div>
                     </IonCol>
                 </IonRow>
-                <IonRow className='ion-text-center'>
+                <IonRow className='ion-text-end'>
                     <IonCol>
                         <IonText color='light'>© 2024 Todos los derechos reservados.</IonText>
                     </IonCol>
                 </IonRow>
-            </IonCard>
-
+            </IonToolbar>
         </IonFooter>
+        </div>
+
     );
 };
 

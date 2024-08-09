@@ -45,24 +45,29 @@ const CourseAdministration: React.FC = () => {
                         </IonToolbar>
                     </IonHeader>
                 )}
+                <div className="content-wrapper">
+                    <div className="content">
 
-                <IonSegment className='ion-padding-top' value={selectedSegment} onIonChange={e => setSelectedSegment(e.detail.value as 'creation' | 'editing')}>
-                    <IonSegmentButton value="creation">
-                        <IonLabel>
-                            {/* <IonIcon className='ion-padding'  slot="start" icon={createOutline} aria-hidden="true" /> */}
-                            Crear Curso
-                        </IonLabel>
-                    </IonSegmentButton>
-                    <IonSegmentButton value="editing">
-                        <IonLabel >
-                            {/* <IonIcon className='ion-padding' slot="start" icon={pencilOutline} aria-hidden="true" /> */}
-                            Editar Curso</IonLabel>
-                    </IonSegmentButton>
-                </IonSegment>
-                {selectedSegment === 'creation' && <CourseCreation />}
-                {selectedSegment === 'editing' && <CourseEditing />}
+                        <IonSegment className='ion-padding-top' value={selectedSegment} onIonChange={e => setSelectedSegment(e.detail.value as 'creation' | 'editing')}>
+                            <IonSegmentButton value="creation">
+                                <IonLabel>
+                                    {/* <IonIcon className='ion-padding'  slot="start" icon={createOutline} aria-hidden="true" /> */}
+                                    Crear Curso
+                                </IonLabel>
+                            </IonSegmentButton>
+                            <IonSegmentButton value="editing">
+                                <IonLabel >
+                                    {/* <IonIcon className='ion-padding' slot="start" icon={pencilOutline} aria-hidden="true" /> */}
+                                    Editar Curso</IonLabel>
+                            </IonSegmentButton>
+                        </IonSegment>
+                        {selectedSegment === 'creation' && <CourseCreation />}
+                        {selectedSegment === 'editing' && <CourseEditing />}
+                    </div>
+                    <Footer />
+                </div>
             </IonContent>
-            <Footer/>
+
         </IonPage>
     );
 };
